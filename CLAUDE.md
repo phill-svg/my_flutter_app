@@ -12,6 +12,9 @@ Owner wants it playable online (Flutter web via GitHub Pages) and on iOS
   buying credits, prizes, or payouts.
 
 ## Layout
+- `lib/pokie/home_screen.dart`: homepage the app opens on (Play now, How to
+  play). Play pushes `PokieScreen`; back returns home.
+- `lib/pokie/colors.dart`: shared colours (`pokieGold`, `pokieFelt`, `pokiePanel`).
 - `lib/pokie/slot_engine.dart`: pure game logic (reels, paylines, pays).
 - `lib/pokie/pokie_screen.dart`: UI. `PokieScreen(engine:)` takes a seeded
   engine in tests.
