@@ -3,11 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
 import 'slot_engine.dart';
-
-const _gold = Color(0xFFFFC94A);
-const _felt = Color(0xFF1B0B2E);
-const _panel = Color(0xFF2C1250);
 
 const int startingCredits = 1000;
 const List<int> lineBetOptions = [1, 2, 5, 10, 20];
@@ -131,10 +128,10 @@ class _PokieScreenState extends State<PokieScreen>
     final win = result?.totalWin ?? 0;
 
     return Scaffold(
-      backgroundColor: _felt,
+      backgroundColor: pokieFelt,
       appBar: AppBar(
-        backgroundColor: _felt,
-        foregroundColor: _gold,
+        backgroundColor: pokieFelt,
+        foregroundColor: pokieGold,
         centerTitle: true,
         title: const Text(
           'LUCKY DIAMONDS',
@@ -146,7 +143,7 @@ class _PokieScreenState extends State<PokieScreen>
             icon: const Icon(Icons.info_outline),
             onPressed: () => showModalBottomSheet<void>(
               context: context,
-              backgroundColor: _panel,
+              backgroundColor: pokiePanel,
               isScrollControlled: true,
               builder: (_) => PayTable(lineBet: _lineBet),
             ),
@@ -212,7 +209,9 @@ class _PokieScreenState extends State<PokieScreen>
                   const SizedBox(height: 16),
                   Center(
                     child: OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(foregroundColor: _gold),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: pokieGold,
+                      ),
                       onPressed: _topUp,
                       icon: const Icon(Icons.refresh),
                       label: Text(
@@ -261,7 +260,7 @@ class _ReelWindow extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         boxShadow: [
-          BoxShadow(color: _gold.withValues(alpha: 0.35), blurRadius: 24),
+          BoxShadow(color: pokieGold.withValues(alpha: 0.35), blurRadius: 24),
         ],
       ),
       child: ClipRRect(
@@ -374,9 +373,9 @@ class _Cell extends StatelessWidget {
         margin: const EdgeInsets.all(3),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: highlighted ? _gold.withValues(alpha: 0.18) : null,
+          color: highlighted ? pokieGold.withValues(alpha: 0.18) : null,
           border: Border.all(
-            color: highlighted ? _gold : Colors.transparent,
+            color: highlighted ? pokieGold : Colors.transparent,
             width: 2,
           ),
         ),
@@ -430,7 +429,7 @@ class _WinBanner extends StatelessWidget {
           AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 200),
             style: TextStyle(
-              color: win > 0 ? _gold : Colors.white70,
+              color: win > 0 ? pokieGold : Colors.white70,
               fontSize: win > 0 ? 30 : 22,
               fontWeight: FontWeight.w900,
               letterSpacing: 2,
@@ -462,16 +461,16 @@ class _Meter extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
       decoration: BoxDecoration(
-        color: _panel,
+        color: pokiePanel,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _gold.withValues(alpha: 0.4)),
+        border: Border.all(color: pokieGold.withValues(alpha: 0.4)),
       ),
       child: Column(
         children: [
           Text(
             label,
             style: const TextStyle(
-              color: _gold,
+              color: pokieGold,
               fontSize: 11,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.5,
@@ -592,11 +591,11 @@ class _RoundButton extends StatelessWidget {
       iconSize: 28,
       onPressed: onPressed,
       style: IconButton.styleFrom(
-        backgroundColor: active ? _gold : _panel,
-        foregroundColor: active ? _felt : _gold,
-        disabledBackgroundColor: _panel.withValues(alpha: 0.5),
+        backgroundColor: active ? pokieGold : pokiePanel,
+        foregroundColor: active ? pokieFelt : pokieGold,
+        disabledBackgroundColor: pokiePanel.withValues(alpha: 0.5),
         disabledForegroundColor: Colors.white24,
-        side: BorderSide(color: _gold.withValues(alpha: 0.5)),
+        side: BorderSide(color: pokieGold.withValues(alpha: 0.5)),
         padding: const EdgeInsets.all(14),
       ),
       icon: Icon(icon),
@@ -612,7 +611,7 @@ class PayTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const heading = TextStyle(
-      color: _gold,
+      color: pokieGold,
       fontWeight: FontWeight.w800,
       fontSize: 16,
       letterSpacing: 1.5,
@@ -725,7 +724,7 @@ class _PaylineDiagram extends StatelessWidget {
                   width: 10,
                   height: 10,
                   margin: const EdgeInsets.all(1),
-                  color: line[reel] == row ? _gold : Colors.white12,
+                  color: line[reel] == row ? pokieGold : Colors.white12,
                 ),
             ],
           ),

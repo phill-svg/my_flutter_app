@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'pokie/pokie_screen.dart';
+import 'pokie/home_screen.dart';
 
 void main() {
   runApp(const PokieApp());
 }
 
 class PokieApp extends StatelessWidget {
-  const PokieApp({super.key, this.home = const PokieScreen()});
+  const PokieApp({super.key, this.home = const HomeScreen()});
 
   final Widget home;
 

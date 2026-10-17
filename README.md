@@ -16,6 +16,7 @@ no real-money bets, purchases or payouts.
 
 | Path | What it is |
 | --- | --- |
+| `lib/pokie/home_screen.dart` | Homepage with Play now and How to play |
 | `lib/pokie/slot_engine.dart` | Reel strips, paylines, pay table and win evaluation (pure Dart, no UI) |
 | `lib/pokie/pokie_screen.dart` | The machine UI: animated reels, meters, controls, pay table sheet |
 | `tool/rtp.dart` | Simulates spins to estimate return to player after changing pays or reels |
